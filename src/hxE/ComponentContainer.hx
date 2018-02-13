@@ -1,6 +1,7 @@
 package hxE;
 import hxE.Component;
 
+import de.polygonal.ds.ArrayList;
 /**
  * ...
  * @author P Svilans
@@ -8,48 +9,48 @@ import hxE.Component;
 class ComponentContainer<T:Component> extends ComponentContainerBase
 {
 	
-	public var container:Array<T>;
+	public var container:ArrayList<T>;
 	
 	public function new() 
 	{
 		super();
 		
-		container = new Array<T>();
+		container = new ArrayList<T>();
 	}
 	
 	override public function remove( index:Int ):Void
 	{
-		container[ index ] = null;
+		container.removeAt(index);
 	}
 	
 	override public function has( index:Int ):Bool 
 	{
-		return container[ index] != null;
+		return container.get(index) != null;
 	}
 	
 	override public function setComponent( index:Int, c:Component ):Void 
 	{
-		container[ index ] = cast c;
+		container.set(index, cast c);
 	}
 	
 	public function set( index:Int, c:T ):Void
 	{
-		container[ index ] = c;
+		container.set(index, c);
 	}
 	
 	override public function getComponent( index:Int ):Component 
 	{
-		return container[ index ];
+		return container.get(index);
 	}
 	
 	public function get( index:Int ):T
 	{
-		return container[ index ];
+		return container.get(index);
 	}
 	
 	override public function getArray():Array<Dynamic> 
 	{
-		return container;
+		return container.toArray();
 	}
 	
 }

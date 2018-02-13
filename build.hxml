@@ -1,1 +1,4 @@
-samples/hxESample_1/build.hxml
+-lib hxE
+-cp samples/hxESample_1/src
+-main Main
+-swf main.swf

@@ -12,9 +12,9 @@ class IntervalSystem extends EntitySystem
 	private var accumulatedTime:Float;
 	private var interval:Float;
 
-	public function new( demand:Demand, interval:Float) 
+	public function new( demand:Demand, interval:Float, maxComponents: Int) 
 	{
-		super( demand);
+		super( demand, maxComponents);
 		
 		this.interval = interval;
 		this.accumulatedTime = 0.0;

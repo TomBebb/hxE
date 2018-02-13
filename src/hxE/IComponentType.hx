@@ -1,5 +1,4 @@
 package hxE;
-import hxE.bits.BitSet;
 
 /**
  * ...
@@ -7,8 +6,5 @@ import hxE.bits.BitSet;
  */
 interface IComponentType
 {
-	
 	public var id:Int;
-	public var bits:BitSet;
-	
 }

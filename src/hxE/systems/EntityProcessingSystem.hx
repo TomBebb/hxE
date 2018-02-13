@@ -10,9 +10,9 @@ import hxE.EntitySystem;
 class EntityProcessingSystem extends EntitySystem
 {
 
-	public function new( demand:Demand) 
+	public function new( demand:Demand, maxComponents: Int) 
 	{
-		super( demand);
+		super( demand, maxComponents);
 	}
 	
 	@final

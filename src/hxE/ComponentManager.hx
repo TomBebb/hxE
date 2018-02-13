@@ -1,5 +1,4 @@
 package hxE;
-import hxE.bits.BitSet;
 
 /**
  * ComponentManager of an EntityWorld. Stores and manages all components relating to all entities,
@@ -61,7 +60,7 @@ class ComponentManager
 	public function addComponentType( e:Entity, c:Component, t:IComponentType ):Void
 	{
 		entityComponents[ t.id ].setComponent( e.id, c );
-		e.bits.add( t.bits );
+		e.bits.set( t.id );
 	}
 	
 	/**
@@ -142,7 +141,7 @@ class ComponentManager
 		
 		components.remove( e.id );
 		
-		e.bits.sub( t.bits );
+		e.bits.clear(t.id);
 	}
 	
 	/**
@@ -170,7 +169,7 @@ class ComponentManager
 		components.getComponent( e.id ).dispose();
 		components.remove( e.id );
 		
-		e.bits.sub( t.bits );
+		e.bits.clear(t.id);
 	}
 	
 	/**

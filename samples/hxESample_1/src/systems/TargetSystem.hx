@@ -18,7 +18,7 @@ class TargetSystem extends EntityProcessingSystem
 
 	public function new() 
 	{
-		super( new Demand().has( TransformComponent).has( TargetComponent));
+		super( new Demand().has( TransformComponent).has( TargetComponent), Main.MAX_COMPONENTS);
 		
 		transformSlot = new ComponentTypeSlot<TransformComponent>(TransformComponent);
 		targetSlot = new ComponentTypeSlot<TargetComponent>(TargetComponent);

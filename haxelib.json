@@ -7,6 +7,8 @@
   "version": "0.0.1",
   "releasenote": "Initial Haxelib2 release",
   "contributors": ["PSvils"],
-  "classPath" : "src"
+  "classPath" : "src",
+  "dependencies": {
+    "polygonal-ds": "2.0.1"
   }
 }

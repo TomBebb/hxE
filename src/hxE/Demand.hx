@@ -1,5 +1,4 @@
 package hxE;
-import hxE.bits.BitSet;
 
 /**
  * Class to declare which components a system needs, and which components it rejects!

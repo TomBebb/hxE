@@ -26,7 +26,7 @@ package hxE;
 	public function add( e:Entity, component:T ):Void
 	{
 		componentContainer.set( e.id, component );
-		e.bits.add( type.bits );
+		e.bits.set( type.id );
 	}
 	
 	/**
@@ -59,7 +59,7 @@ package hxE;
 	public function remove( e:Entity ):Void
 	{
 		componentContainer.remove( e.id );
-		e.bits.sub( type.bits );
+		e.bits.clear( type.id );
 	}
 	
 	public function delete( e:Entity ):Void
@@ -67,7 +67,7 @@ package hxE;
 		componentContainer.get( e.id ).dispose();
 		
 		componentContainer.remove( e.id );
-		e.bits.sub( type.bits );
+		e.bits.clear( type.id );
 	}
 	
 	/**

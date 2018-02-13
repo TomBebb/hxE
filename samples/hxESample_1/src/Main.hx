@@ -22,6 +22,7 @@ import systems.TargetSystem;
 
 class Main extends Sprite
 {
+	public static inline var MAX_COMPONENTS = 5;
 	
 	var world:EntityWorld;
 	

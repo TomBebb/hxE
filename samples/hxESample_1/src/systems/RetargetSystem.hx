@@ -19,7 +19,7 @@ class RetargetSystem extends IntervalProcessingSystem
 
 	public function new( bounds:Rectangle) 
 	{
-		super( new Demand().has( TargetComponent), 1.0);
+		super( new Demand().has( TargetComponent), 1.0, Main.MAX_COMPONENTS);
 		
 		this.bounds = bounds;
 		

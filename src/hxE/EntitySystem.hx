@@ -1,7 +1,10 @@
 package hxE;
-import hxE.bits.BitSet;
+
+import de.polygonal.ds.BitVector;
 
 using Lambda;
+
+using hxE.util.BitVectorUtil;
 
 /**
  * ...
@@ -12,8 +15,8 @@ class EntitySystem implements IEntitySystem
 	
 	private var _world:EntityWorld;
 	
-	private var _require:BitSet;
-	private var _reject:BitSet;
+	private var _require:BitVector;
+	private var _reject:BitVector;
 	private var demand:Demand;
 	
 	private var entities:List<Entity>;
@@ -22,11 +25,11 @@ class EntitySystem implements IEntitySystem
 	
 	public var slots:Array<IComponentTypeSlot>;
 	
-	public function new( demand:Demand) 
+	public function new( demand:Demand, maxComponents: Int) 
 	{
 		this.demand = demand;
-		_require = new BitSet();
-		_reject = new BitSet();
+		_require = new BitVector(maxComponents);
+		_reject = new BitVector(maxComponents);
 		
 		isPassive = false;
 		
@@ -207,12 +210,12 @@ class EntitySystem implements IEntitySystem
 	{
 		if ( world != null)
 		{
-			_require.reset();
-			for ( r in demand._require) _require.add( world.componentManager.getType( r).bits);
+			_require.clearAll();
+			for ( r in demand._require) _require.set( world.componentManager.getType( r).id);
 			
-			_reject.reset();
+			_reject.clearAll();
 			_reject.flip();
-			for ( r in demand._reject) _reject.sub( world.componentManager.getType( r).bits);
+			for ( r in demand._reject) _reject.clear( world.componentManager.getType( r).id);
 		}
 		
 		return _world = world;

@@ -9,9 +9,9 @@ import hxE.Entity;
 class IntervalProcessingSystem extends IntervalSystem
 {
 
-	public function new( demand:Demand, interval:Float) 
+	public function new( demand:Demand, interval:Float, maxComponents: Int) 
 	{
-		super( demand, interval);
+		super( demand, interval, maxComponents);
 	}
 	
 	@final

@@ -21,7 +21,7 @@ class DisplaySystem extends EntityProcessingSystem
 
 	public function new() 
 	{
-		super( new Demand().has( TransformComponent).has( DisplayComponent));
+		super( new Demand().has( TransformComponent).has( DisplayComponent), Main.MAX_COMPONENTS);
 		
 		// Currently this is a really verbose way doing things, not sure if there are any work arounds.
 		transformSlot = new ComponentTypeSlot<TransformComponent>(TransformComponent);

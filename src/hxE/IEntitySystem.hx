@@ -1,5 +1,5 @@
 package hxE;
-import hxE.bits.BitSet;
+import de.polygonal.ds.BitVector;
 
 /**
  * ...

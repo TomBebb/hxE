@@ -1,5 +1,6 @@
 package hxE;
-import hxE.bits.BitSet;
+
+import de.polygonal.ds.BitVector;
 
 /**
  * An ENTITY! :o
@@ -9,7 +10,7 @@ class Entity
 {
 	
 	public var id:Int;
-	public var bits:BitSet;
+	public var bits:BitVector;
 	
 	private var _isActive:Bool;
 	
@@ -26,7 +27,7 @@ class Entity
 		this.id = id;
 		this.world = world;
 		
-		bits = new BitSet();
+		bits = new BitVector(world.numComponentBits);
 		isActive = true;
 	}
 	

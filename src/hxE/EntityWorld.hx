@@ -1,12 +1,11 @@
 package hxE;
 import haxe.ds.GenericStack;
+import haxe.Constraints.Constructible;
 
 /**
  * ...
  * @author P Svilans
  */
-
-typedef Constructable = { function new():Void; };
 
 class EntityWorld
 {
@@ -14,6 +13,8 @@ class EntityWorld
 	private static var WORLDS:Array<EntityWorld> = new Array<EntityWorld>();
 	
 	public var worldId:Int;
+
+	public var numComponentBits: Int;
 	
 	private var delta:Float;
 	
@@ -169,7 +170,7 @@ class EntityWorld
 		system.world = null;
 	}
 	
-	@:generic public function getContext <T:(Constructable, Context)> (id:String, ContextType:Class<T>):T
+	@:generic public function getContext <T:(Constructible<T>, Context)> (id:String, ContextType:Class<T>):T
 	{
 		if (contexts.exists(id)) return contexts.get(id);
 		else
